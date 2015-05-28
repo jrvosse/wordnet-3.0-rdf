@@ -1,0 +1,13 @@
+@prefix     lib: <http://www.swi-prolog.org/rdf/library/> .
+@prefix     owl: <http://www.w3.org/2002/07/owl#> .
+@prefix      dc: <http://purl.org/dc/terms/> .
+
+<wn30-basic-only>
+	a lib:Ontology ;
+	a lib:Virtual ;
+	lib:source <http://purl.org/vocabularies/princeton/wn30/> ;
+	owl:imports
+		<wnbasic-schema.ttl.gz> ,
+		<wordnet-senselabels.ttl.gz> .
+
+

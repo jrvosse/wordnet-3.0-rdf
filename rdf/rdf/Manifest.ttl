@@ -1,0 +1,81 @@
+@prefix      lib: <http://www.swi-prolog.org/rdf/library/> .
+@prefix      owl: <http://www.w3.org/2002/07/owl#> .
+@prefix	 dcterms: <http://purl.org/dc/terms/> .
+@prefix     wn30: <http://purl.org/vocabularies/princeton/wn30/> .
+@prefix wnschema: <http://purl.org/vocabularies/princeton/wordnet/schema#> .
+
+@prefix	   basic: <basic/> .
+@prefix	    full: <full/> .
+@prefix standoff: <standoff/> .
+@prefix  wn20map: <wn20mappings/> .
+@prefix lexvodir: <../lexvo.org/> .
+@prefix     wn20: <../../w3c-wordnet/> .
+
+:wn30
+        a lib:Namespace ;
+        lib:mnemonic "wn30" ;
+        lib:namespace wn30: .
+
+:wnschema
+        a lib:Namespace ;
+        lib:mnemonic "wnschema" ;
+        lib:namespace wnschema: .
+
+<wn30-full>
+	a lib:Ontology ;
+	a lib:Virtual ;
+	dcterms:title "Complete RDF conversion of Princeton Wordnet 3.0" ;
+	owl:versionInfo "3.0" ;
+	lib:source wn30: ;
+	owl:imports
+		<wn30-skos> ,
+		<wn30-common> ,
+		wn20map:wnhubs ,
+		standoff:wn30-morph ,
+		basic:wn30-basic-only , # Hack: we only load this to get skos:altLabel mapped
+		full:wn30-full-only .
+
+<wn30-basic>
+	a lib:Ontology ;
+	a lib:Virtual ;
+	a lib:CloudNode ;
+	dcterms:title "Basic RDF conversion of Princeton Wordnet 3.0" ;
+	owl:versionInfo "3.0" ;
+	lib:source wn30: ;
+	owl:imports
+		<wn30-skos> ,
+		<wn30-common> ,
+		basic:wn30-basic-only .
+
+<wn30-common>
+	a lib:Ontology ;
+	a lib:Virtual ;
+	dcterms:title "Partial RDF conversion of Princeton Wordnet 3.0" ;
+	owl:versionInfo "3.0" ;
+	lib:source wn30: ;
+	owl:imports
+		standoff:wn30-teleo ,
+		<wordnet-attribute.ttl.gz> ,
+		<wordnet-causes.ttl.gz> ,
+		<wordnet-classifiedby.ttl.gz> ,
+		<wordnet-entailment.ttl.gz> ,
+		<wordnet-frame.ttl.gz> ,
+		<wordnet-glossary.ttl.gz> ,
+		<wordnet-hyponym.ttl.gz> ,
+		<wordnet-instances.ttl.gz> ,
+		<wordnet-membermeronym.ttl.gz> ,
+		<wordnet-partmeronym.ttl.gz> ,
+		<wordnet-sameverbgroupas.ttl.gz> ,
+		<wordnet-similarity.ttl.gz> ,
+		<wordnet-substancemeronym.ttl.gz> ,
+		<wordnet-synset.ttl.gz> .
+
+<wn30-skos>
+	a lib:Ontology ;
+	a lib:Virtual ;
+	dcterms:title "Mapping from Wordnet/RDF to SKOS/RDF" ;
+	lib:source wn30: ;
+	owl:imports
+		<../../w3c-wordnet/wnskosmap.rdfs> ,
+		<wnskosmap.ttl.gz> ,
+		<wordnet-skos-inScheme.ttl.gz> .

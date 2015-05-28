@@ -1,0 +1,16 @@
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix  lib: <http://www.swi-prolog.org/rdf/library/> .
+@prefix  owl: <http://www.w3.org/2002/07/owl#> .
+@prefix   dc: <http://purl.org/dc/terms/> .
+
+<wn30-morph>
+	a void:Dataset ;
+	lib:source <http://purl.org/vocabularies/princeton/wn30/> ;
+	void:dataDump <wordnet-morphosemantic.ttl.gz> .
+
+<wn30-teleo>
+	a void:Dataset ;
+	lib:source <http://purl.org/vocabularies/princeton/wn30/> ;
+	void:dataDump <wordnet-teleological.ttl.gz> .
+

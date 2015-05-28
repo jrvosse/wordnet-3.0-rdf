@@ -1,0 +1,16 @@
+@prefix     lib: <http://www.swi-prolog.org/rdf/library/> .
+@prefix     owl: <http://www.w3.org/2002/07/owl#> .
+@prefix      dc: <http://purl.org/dc/terms/> .
+
+<wn30-morph>
+	a lib:Ontology ;
+	a lib:Virtual ;
+	lib:source <http://purl.org/vocabularies/princeton/wn30/> ;
+	owl:imports <wordnet-morphosemantic.ttl.gz> .
+
+<wn30-teleo>
+	a lib:Ontology ;
+	a lib:Virtual ;
+	lib:source <http://purl.org/vocabularies/princeton/wn30/> ;
+	owl:imports <wordnet-teleological.ttl.gz> .
+

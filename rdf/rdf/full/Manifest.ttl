@@ -1,0 +1,19 @@
+@prefix     lib: <http://www.swi-prolog.org/rdf/library/> .
+@prefix     owl: <http://www.w3.org/2002/07/owl#> .
+@prefix      dc: <http://purl.org/dc/terms/> .
+
+<wn30-full-only>
+	a lib:Ontology ;
+	a lib:Virtual ;
+	lib:source <http://purl.org/vocabularies/princeton/wn30/> ;
+	owl:imports
+		<wnfull-schema.ttl.gz> ,
+		<wordnet-antonym.ttl.gz> ,
+		<wordnet-derivationallyrelated.ttl.gz> ,
+		<wordnet-participleof.ttl.gz> ,
+		<wordnet-pertainsto.ttl.gz> ,
+		<wordnet-seealso.ttl.gz> ,
+		<wordnet-syntax.ttl.gz> ,
+		<wordnet-wordsense-synset-relation-list.ttl.gz> ,
+		<wordnet-wordsense-synset-relations.ttl.gz> ,
+		<wordnet-wordsensesandwords.ttl.gz> .

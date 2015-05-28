@@ -1,0 +1,89 @@
+@prefix     void: <http://rdfs.org/ns/void#> .
+@prefix     vann: <http://purl.org/vocab/vann/> .
+@prefix      lib: <http://www.swi-prolog.org/rdf/library/> .
+@prefix      owl: <http://www.w3.org/2002/07/owl#> .
+@prefix	 dcterms: <http://purl.org/dc/terms/> .
+@prefix     wn30: <http://purl.org/vocabularies/princeton/wn30/> .
+@prefix     wn31: <http://wordnet-rdf.princeton.edu/wn31/> .
+@prefix wnschema: <http://purl.org/vocabularies/princeton/wordnet/schema#> .
+
+@prefix	   basic: <basic/> .
+@prefix	    full: <full/> .
+@prefix standoff: <standoff/> .
+@prefix  wn20map: <wn20mappings/> .
+@prefix lexvodir: <../lexvo.org/> .
+@prefix     wn20: <../../w3c-wordnet/> .
+
+[ vann:preferredNamespacePrefix "wn30" ;
+  vann:preferredNamespaceUri "http://purl.org/vocabularies/princeton/wn30/"
+] .
+[ vann:preferredNamespacePrefix "wn31" ;
+  vann:preferredNamespaceUri "http://wordnet-rdf.princeton.edu/wn31/"
+] .
+[ vann:preferredNamespacePrefix "wnschema" ;
+  vann:preferredNamespaceUri "http://purl.org/vocabularies/princeton/wordnet/schema#"
+] .
+
+<wn31>
+        a void:Dataset ;
+        dcterms:title "Princeton WordNet RDF 3.1" ;
+        owl:versionInfo "3.1" ;
+        lib:source <http://wordnet-rdf.princeton.edu/> ;
+        void:dataDump
+                <wn31.nt.gz> .
+<wn30-full>
+	a void:Dataset ;
+	dcterms:title "Complete RDF conversion of Princeton Wordnet 3.0" ;
+	owl:versionInfo "3.0" ;
+	lib:source wn30: ;
+	void:subset
+		<wn30-skos> ,
+		<wn30-common> ,
+		wn20map:wnhubs ,
+		standoff:wn30-morph ,
+		basic:wn30-basic-only , # Hack: we only load this to get skos:altLabel mapped
+		full:wn30-full-only .
+
+<wn30-basic>
+	a void:Dataset ;
+	a lib:CloudNode ;
+	dcterms:title "Basic RDF conversion of Princeton Wordnet 3.0" ;
+	owl:versionInfo "3.0" ;
+	lib:source wn30: ;
+	void:subset
+		<wn30-skos> ,
+		<wn30-common> ,
+		basic:wn30-basic-only .
+
+<wn30-common>
+	a void:Dataset ;
+	dcterms:title "Partial RDF conversion of Princeton Wordnet 3.0" ;
+	owl:versionInfo "3.0" ;
+	lib:source wn30: ;
+	void:subset
+		standoff:wn30-teleo ;
+	void:dataDump
+		<wordnet-attribute.ttl.gz> ,
+		<wordnet-causes.ttl.gz> ,
+		<wordnet-classifiedby.ttl.gz> ,
+		<wordnet-entailment.ttl.gz> ,
+		<wordnet-frame.ttl.gz> ,
+		<wordnet-glossary.ttl.gz> ,
+		<wordnet-hyponym.ttl.gz> ,
+		<wordnet-instances.ttl.gz> ,
+		<wordnet-membermeronym.ttl.gz> ,
+		<wordnet-partmeronym.ttl.gz> ,
+		<wordnet-sameverbgroupas.ttl.gz> ,
+		<wordnet-similarity.ttl.gz> ,
+		<wordnet-substancemeronym.ttl.gz> ,
+		<wordnet-synset.ttl.gz> .
+
+<wn30-skos>
+	a void:Linkset ;
+	dcterms:title "Mapping from Wordnet/RDF to SKOS/RDF" ;
+	lib:source wn30: ;
+	void:subset
+		<wnskosmap.rdfs> ;
+	void:dataDump
+		<wnskosmap.ttl.gz> ,
+		<wordnet-skos-inScheme.ttl.gz> .
