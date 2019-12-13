@@ -6,7 +6,7 @@ def main():
     p = re.compile("(\"Synset)\('(.*)'\)")
     n = re.compile("\.n\.")
     print "@prefix wn30:  <http://purl.org/vocabularies/princeton/wn30/> ."
-    print "@prefix basic: <http://purl.org/vocabularies/cgraph/> ."
+    print "@prefix cgraph: <http://purl.org/vocabularies/cgraph/> ."
     for line in basics_file:
         (synset, sid) = p.match(line).groups()
         (l, ns) = n.split(sid)
