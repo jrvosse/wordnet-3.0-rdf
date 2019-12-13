@@ -10,8 +10,10 @@ def main():
     for line in basics_file:
         (synset, sid) = p.match(line).groups()
         (l, ns) = n.split(sid)
+        normalized1 = l.replace('\'', '_')
+        normalized = normalized1.replace('/', '_')
         nn = int(ns)
-        print("wn30:synset-%s-noun-%d a cgraph:BasicLevelSynset ." % (l,nn))
+        print("wn30:synset-%s-noun-%d a cgraph:BasicLevelSynset ." % (normalized,nn))
 
 if __name__== "__main__":
     main()
