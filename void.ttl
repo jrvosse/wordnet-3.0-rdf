@@ -7,6 +7,7 @@
 @prefix     wn31: <http://wordnet-rdf.princeton.edu/wn31/> .
 @prefix wnschema: <http://purl.org/vocabularies/princeton/wordnet/schema#> .
 
+@prefix basiclevel: <basiclevels/> .
 @prefix	   basic: <basic/> .
 @prefix	    full: <full/> .
 @prefix standoff: <standoff/> .
