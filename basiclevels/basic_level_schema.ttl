@@ -1,0 +1,7 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wn30:  <http://purl.org/vocabularies/princeton/wn30/> .
+@prefix wn20schema: <http://www.w3.org/2006/03/wn/wn20/schema/> .
+@prefix cgraph: <http://purl.org/vocabularies/cgraph/> .
+
+cgraph:BasicLevelSynset rdfs:subClassOf wn20schema:Synset ;
+	rdfs:comment "A synset that is predicted to represent a 'basic' level catagory.  See https://en.wikipedia.org/wiki/Prototype_theory#Basic_level_categories for an explanation of basic level categories.  See https://arxiv.org/abs/1910.12619 for details about and limitations of the machine learned predictions presented here."@en .

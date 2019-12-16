@@ -1,0 +1,11 @@
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix  lib: <http://www.swi-prolog.org/rdf/library/> .
+@prefix  owl: <http://www.w3.org/2002/07/owl#> .
+@prefix	  dc: <http://purl.org/dc/terms/> .
+
+<wn30-basiclevel>
+	a void:Dataset ;
+	lib:source <http://purl.org/vocabularies/cgraph/> ;
+	void:dataDump
+		<basic_level_schema.ttl> ,
+		<basic_level.ttl.gz> .
