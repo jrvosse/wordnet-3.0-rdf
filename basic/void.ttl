@@ -7,6 +7,7 @@
 	a void:Dataset ;
 	lib:source <http://purl.org/vocabularies/princeton/wn30/> ;
 	void:dataDump
+		<wnbasic.rdfs> ,
 		<wnbasic-schema.ttl.gz> ,
 		<wordnet-senselabels.ttl.gz> .
 
