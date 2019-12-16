@@ -12,8 +12,10 @@
 @prefix standoff: <standoff/> .
 @prefix  wn20map: <wn20mappings/> .
 @prefix lexvodir: <../lexvo.org/> .
-@prefix     wn20: <../../w3c-wordnet/> .
 
+[ vann:preferredNamespacePrefix "wn20" ;
+  vann:preferredNamespaceUri "http://www.w3.org/2006/03/wn/wn20/schema/"
+] .
 [ vann:preferredNamespacePrefix "wn30" ;
   vann:preferredNamespaceUri "http://purl.org/vocabularies/princeton/wn30/"
 ] .
