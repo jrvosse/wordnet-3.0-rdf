@@ -5,8 +5,8 @@ def main():
     basics_file = open ("basiclevels.txt", "r")
     p = re.compile("(Synset)\('(.*)'\)\t(.*)")
     n = re.compile("\.n\.")
-    print "@prefix wn30:  <http://purl.org/vocabularies/princeton/wn30/> ."
-    print "@prefix cgraph: <http://purl.org/vocabularies/cgraph/> ."
+    print("@prefix wn30:  <http://purl.org/vocabularies/princeton/wn30/> .")
+    print("@prefix cgraph: <http://purl.org/vocabularies/cgraph/> .")
     for line in basics_file:
         (synset, sid, lemma) = p.match(line).groups()
         (l, ns) = n.split(sid)
